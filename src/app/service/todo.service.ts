@@ -10,6 +10,10 @@ export class TodoService {
   constructor(private http: HttpClient) { }
 
   getTodos(){
-    return this.http.get("http://localhost:8080/todo/");
+    return this.http.get("http://localhost:8080/todo");
+  }
+
+  getTodo(id: String){
+    return this.http.get(`http://localhost:8080/todo/${id}`);
   }
 }

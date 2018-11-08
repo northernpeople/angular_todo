@@ -5,16 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
