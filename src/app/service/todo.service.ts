@@ -16,4 +16,11 @@ export class TodoService {
   getTodo(id: String){
     return this.http.get(`http://localhost:8080/todo/${id}`);
   }
+
+  createTodo(task: String){
+    let response = this.http.post(
+      `http://localhost:8080/todo/`, 
+      JSON.stringify({'task' : task}));
+    response.subscribe(r => console.log(r));
+  }
 }
