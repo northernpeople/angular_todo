@@ -7,7 +7,7 @@ import { TodoService } from '../service/todo.service';
   selector: 'app-todo-details',
   template: `
     <p>
-      adsf
+      Task details: 
       {{todo.task}}
     </p>
   `,
@@ -18,7 +18,7 @@ export class TodoDetailsComponent implements OnInit {
   route: ActivatedRoute;
   service: TodoService;
   todoId: String;
-  todo: Object;
+  todo: Object; // todo replace with real model
 
   constructor(service: TodoService, route: ActivatedRoute) { 
     this.route = route;

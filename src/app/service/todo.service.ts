@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
@@ -17,10 +17,15 @@ export class TodoService {
     return this.http.get(`http://localhost:8080/todo/${id}`);
   }
 
-  createTodo(task: String){
+  createTodo(task: JSON){
+
+    let headers = new HttpHeaders()
+    .set('Content-Type', 'application/json');
+
     let response = this.http.post(
       `http://localhost:8080/todo/`, 
-      JSON.stringify({'task' : task}));
+       task,
+       {headers: headers});
     response.subscribe(r => console.log(r));
   }
 }

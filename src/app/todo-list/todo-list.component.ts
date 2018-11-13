@@ -9,20 +9,17 @@ import { Observable } from 'rxjs';
   template: `
     <ul>
       <li *ngFor='let td of todos'>
-      <mat-card>
         <a routerLink="/{{td.id}}">
-          <mat-card-header>
             {{td.task}}
-          </mat-card-header>
         </a>
-      </mat-card>
       </li>
     </ul>
 
-
     <hr/>
+
+    <h2>Template form</h2>
     <form #f="ngForm" (ngSubmit)="formSubmit(f.value)">
-      <input ngModel type="text" name="todo"  placeholder="task description"/>
+      <input ngModel type="text" name="task" placeholder="task description"/>
 
       <div ngModelGroup="authorDetails">
         <input ngModel type="text" name="author" placeholder="author name"/>
@@ -32,7 +29,6 @@ import { Observable } from 'rxjs';
     </form>
 
     <pre>{{ f.value | json }}</pre>
-    
   `,
   styles: []
 })
@@ -47,7 +43,7 @@ export class TodoListComponent implements OnInit {
     this.todoService.getTodos().subscribe( todos => this.todos = todos);
   }
 
-  formSubmit(value: Object){
+  formSubmit(value: JSON){
     console.log(value);
     this.todoService.createTodo(value);
   }

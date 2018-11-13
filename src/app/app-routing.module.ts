@@ -5,7 +5,6 @@ import { TodoDetailsComponent} from './todo-details/todo-details.component';
 
 
 const routes: Routes = [
-
   {
     path: '',
     component: TodoListComponent
